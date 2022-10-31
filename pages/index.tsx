@@ -7,8 +7,8 @@ export default function Home() {
     <div className={styles.container}>
       <Header />
       
-      <main className="hero container max-w-screen-lg mx-auto pb-10 mt-5">
-        <img src="/home.png" alt="home_img" />
+      <main className="mx-auto pb-10 mt-5 flex justify-items-center w-4/5 ml-64">
+        <img src="/home.png" alt="home_img" height={400} width={750} />
       </main>
       
       <Footer />
