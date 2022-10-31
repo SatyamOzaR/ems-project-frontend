@@ -8,7 +8,7 @@ export default function Home() {
       <Header />
       
       <main className="hero container max-w-screen-lg mx-auto pb-10 mt-5">
-        <img src="/home.png" alt="home_img" />
+       <h1>employee_by_id</h1>
       </main>
       
       <Footer />
