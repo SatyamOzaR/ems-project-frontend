@@ -2,7 +2,9 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import styles from '../styles/Home.module.css'
 import useSWR from 'swr';
+
 import { API_ROUTES, fetcher } from '../utils';
+import { Employee } from '../models';
 
 export const EmployeeTableHeader = ({ columns }: { columns: string[] }) => {
   return (
@@ -20,7 +22,7 @@ export const EmployeeTableHeader = ({ columns }: { columns: string[] }) => {
   )
 }
 
-export const EmployeeTableBody = ({ data }: { data: any }) => {
+export const EmployeeTableBody = ({ data }: { data: Employee[] }) => {
   return (
     <tbody>
       {data.map((x: { firstName: string; lastName: string; email: string; }, i: any) =>
@@ -39,7 +41,7 @@ export const EmployeeTableBody = ({ data }: { data: any }) => {
   )
 }
 
-export const EmployeeTable = ({ data }: { data: any }) => {
+export const EmployeeTable = ({ data }: { data: Employee[] }) => {
   return (
     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       <EmployeeTableHeader columns={["First Name", "Last Name", "Email"]} />
