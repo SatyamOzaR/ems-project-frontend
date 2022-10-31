@@ -2,6 +2,16 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import styles from '../styles/Home.module.css'
 
+export const getStaticProps = async () => {
+  const res = await fetch('http://localhost:8080/api/employees');
+  const data = await res.json()
+  return {
+      props: {
+          data: data
+      }
+  };
+}
+
 export default function Home() {
   return (
     <div className={styles.container}>

@@ -17,8 +17,8 @@ const AllEmployees = ({data} : any) =>
   <div className={styles.container}>
       <Header />
       <div className="overflow-x-auto relative">
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <table className="w-full text-sm text-left text-gray-500 mt-5">
+        <thead className="text-xs text-gray-900 uppercase bg-yellow-400 ">
             <tr>
                 <th scope="col" className="py-3 px-6">
                     First Name
@@ -33,14 +33,14 @@ const AllEmployees = ({data} : any) =>
         </thead>
         <tbody>
         {data.map((x: { firstName: string; lastName: string; email: string; }, i: any) =>
-            <tr key={i} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <tr key={i} className="bg-red-600 border-b">
+                <th scope="row" className="py-4 px-6 font-medium text-white whitespace-nowrap ">
                     {x.firstName}
                 </th>
-                <td className="py-4 px-6">
+                <td className="py-4 px-6 text-white">
                 {x.lastName}
                 </td>
-                <td className="py-4 px-6">
+                <td className="py-4 px-6 text-white">
                 {x.email}
                 </td>
             </tr>)}
