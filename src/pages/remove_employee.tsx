@@ -1,9 +1,9 @@
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 import Header from '../components/header'
 import Footer from '../components/footer'
 import styles from '../../styles/Home.module.css'
 import EmployeeService from '../services/axios_service'
-import { useState } from 'react';
-import { useRouter } from 'next/router';
 
 export default function RemoveEmployeeById() {
   
