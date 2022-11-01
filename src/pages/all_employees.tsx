@@ -1,25 +1,29 @@
 import Header from '../components/header'
 import Footer from '../components/footer'
-import styles from '../styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
+import EmployeeService from '../services/axios_service'
 
 export const getStaticProps = async () => {
-  const res = await fetch('http://localhost:8080/api/employees');
-  const data = await res.json()
+  const response = await EmployeeService.getEmployees();
+  const employeeList = await response.data
   return {
       props: {
-          data: data
+        employeeList: employeeList
       }
   };
 }
 
-const AllEmployees = ({data} : any) => 
+const AllEmployees = ({employeeList} : any) => 
 <>
   <div className={styles.container}>
       <Header />
       <div className="overflow-x-auto relative">
-      <table className="w-full text-sm text-left text-gray-500 mt-5">
-        <thead className="text-xs text-gray-900 uppercase bg-yellow-400 ">
+      <table className="w-full text-sm text-left text-gray-500 mt-5 border-white border-spacing-4">
+        <thead className="text-xs text-gray-900 uppercase bg-yellow-400 border-white">
             <tr>
+            <th scope="col" className="py-3 px-6">
+                    ID
+                </th>
                 <th scope="col" className="py-3 px-6">
                     First Name
                 </th>
@@ -32,8 +36,11 @@ const AllEmployees = ({data} : any) =>
             </tr>
         </thead>
         <tbody>
-        {data.map((x: { firstName: string; lastName: string; email: string; }, i: any) =>
+        {employeeList.map((x: { id : any; firstName: string; lastName: string; email: string; }, i: any) =>
             <tr key={i} className="bg-red-600 border-b">
+                <td className="py-4 px-6 text-white">
+                {x.id}
+                </td>
                 <th scope="row" className="py-4 px-6 font-medium text-white whitespace-nowrap ">
                     {x.firstName}
                 </th>
